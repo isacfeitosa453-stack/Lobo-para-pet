@@ -1,1 +1,0 @@
-lua("Script loaded successfully!")
