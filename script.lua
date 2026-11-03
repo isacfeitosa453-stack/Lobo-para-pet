@@ -2,6 +2,7 @@
 -- Estrutura de opções e raridades
 
 local Config = {
+    local Config = {
     AutoCollectFruits = false,
     AutoPlantFruits = false,
     AutoFeedPets = false,
@@ -17,7 +18,6 @@ local Raridades = {
     Secreto = false
 }
 
--- Ativar ou desativar uma função
 local function AtivarFuncao(nome, ativar)
     if Config[nome] ~= nil then
         Config[nome] = ativar
@@ -25,7 +25,6 @@ local function AtivarFuncao(nome, ativar)
     end
 end
 
--- Selecionar uma raridade
 local function SelecionarRaridade(nome, ativar)
     if Raridades[nome] ~= nil then
         Raridades[nome] = ativar
@@ -33,30 +32,22 @@ local function SelecionarRaridade(nome, ativar)
     end
 end
 
--- Exemplo de seleção
-SelecionarRaridade("Secreto", true)
-SelecionarRaridade("Mitico", true)
-
--- Exemplo de ativação
+-- Configurações iniciais
 AtivarFuncao("AutoCollectFruits", true)
 AtivarFuncao("AutoPlantFruits", true)
 AtivarFuncao("AutoFeedPets", true)
 AtivarFuncao("AutoBuyPets", true)
 
--- Mostrar as funções ativadas
+SelecionarRaridade("Secreto", true)
+SelecionarRaridade("Mitico", true)
+
+-- Exibir configurações
 for nome, ativada in pairs(Config) do
-    if ativada then
-        print("Função ativada: " .. nome)
-    end
+    print(nome .. ": " .. tostring(ativada))
 end
 
--- Mostrar as raridades selecionadas
 for raridade, selecionada in pairs(Raridades) do
     if selecionada then
         print("Raridade selecionada: " .. raridade)
     end
-end
-
--- Integração com as ações reais do jogo:
--- coleta de frutas, plantio, alimentação e compra
--- precisam de lógica autorizada do jogo.
+    end
